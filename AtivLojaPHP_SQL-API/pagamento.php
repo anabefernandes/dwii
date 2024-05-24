@@ -1,27 +1,27 @@
 <?php
-// Verifica se o ID do produto foi passado na URL
+
 if (isset($_GET['id'])) {
     $produto_id = $_GET['id'];
     require_once 'vendor/autoload.php';
-    require "conexao.php"; // Certifique-se de ajustar o caminho conforme necessário
+    require "conexao.php"; 
 
-    // Configuração das credenciais do Mercado Pago
+
     $public_key = "TEST-ccb853de-3bda-4d81-8831-6aefaa9200de";
     $access_token = "TEST-6503629649699673-052417-0ba483d31e5787abbb76f8f67902a42e-1364846056";
 
     MercadoPago\MercadoPagoConfig::setAccessToken($access_token);
 
-    // Cria um cliente de preferências do Mercado Pago
+
     $client = new MercadoPago\Client\Preference\PreferenceClient();
 
-    // Obtém informações do produto do banco de dados
+
     $sql = "SELECT nome, preco, foto, id FROM produto WHERE id = $produto_id";
     $stmt = $conexao->prepare($sql);
     $stmt->execute();
 
     $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Verifica se o produto foi encontrado
+
     if ($produtos) {
         foreach ($produtos as $produto) {
             $nome = $produto['nome'];
