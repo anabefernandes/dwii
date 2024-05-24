@@ -1,0 +1,19 @@
+{
+    "name": "anabefernandes/ativ-loja-php",
+    "description": "Um sistema de loja online desenvolvido em PHP para a disciplina de desenvolvimento web.",
+    "type": "project",
+    "require": {
+        "mercadopago/dx-php": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Anabefernandes\\AtivLojaPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ana Beatriz",
+            "email": "abeatriz.fernandes@outlook.com"
+        }
+    ]
+}
